@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('/export', 'ReportController@getExport');
+Route::get('/export1', 'Report1Controller@getExport');

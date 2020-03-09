@@ -32,7 +32,7 @@ class ReportController extends Controller
         
         $fn = $filename.'-'.date('Y-m-d_H-i-s');
         
-        Excel::create($fn, function ($excel) use ($data, $captions) {
+        $result = Excel::create($fn, function ($excel) use ($data, $captions) {
 
             $excel->sheet('SHEET NAME', function ($sheet) use ($data, $captions) {
                         
@@ -42,7 +42,10 @@ class ReportController extends Controller
 
             });
 
-        })->export($type);
+        });
+
+        $result->export($type);
+
     }
 
 }
